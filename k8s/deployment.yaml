@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codellama-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: codellama-app
+  template:
+    metadata:
+      labels:
+        app: codellama-app
+    spec:
+      containers:
+      - name: codellama-app
+        image: nareshsharma3/codellama:0.0.3
+        ports:
+        - containerPort: 7861
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data  # Mount the volume to this path in the container
+      volumes:
+      - name: data-volume
+        hostPath:
+          path: /home/naresh_sharma3/deployment/models  # Path to your local directory
