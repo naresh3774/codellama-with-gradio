@@ -7,6 +7,6 @@ spec:
     app: codellama-app
   ports:
     - protocol: TCP
-      port: 7861
-      targetPort: 7861
+      port: 7860
+      targetPort: 7860
   type: NodePort

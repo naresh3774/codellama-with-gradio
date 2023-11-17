@@ -14,13 +14,13 @@ spec:
     spec:
       containers:
       - name: codellama-app
-        image: nareshsharma3/codellama:0.0.3
+        image: nareshsharma3/codellama:0.0.5
         ports:
-        - containerPort: 7861
+        - containerPort: 7860
         volumeMounts:
         - name: data-volume
           mountPath: /app/data  # Mount the volume to this path in the container
       volumes:
       - name: data-volume
         hostPath:
-          path: /home/naresh_sharma3/deployment/models  # Path to your local directory
+          path: /home/naresh_sharma3/deployment/models/  # Path to your local directory
