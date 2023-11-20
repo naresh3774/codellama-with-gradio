@@ -14,13 +14,16 @@ spec:
     spec:
       containers:
       - name: codellama-app
-        image: nareshsharma3/codellama:0.0.5
+        image: nareshsharma3/codellama:v0.6.0
         ports:
         - containerPort: 7860
         volumeMounts:
         - name: data-volume
-          mountPath: /app/data  # Mount the volume to this path in the container
+          mountPath: /app/data/  # Mount the volume to this path in the container
+        env:
+        - name: MODEL_PATH  # Define the environment variable
+          value: /app/data/codellama-13b-instruct.Q4_K_M.gguf # Path to the model within the container
       volumes:
       - name: data-volume
         hostPath:
-          path: /home/naresh_sharma3/deployment/models/  # Path to your local directory
+          path: /home/omnia-share/models/  # Path to your local directory

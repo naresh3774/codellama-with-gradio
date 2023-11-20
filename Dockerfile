@@ -21,6 +21,7 @@ COPY ./app.py /app/app.py
 # Upgrade pip and install Python packages
 #RUN pip install -r requirements.txt --default-timeout=100 future
 RUN pip install gradio ctransformers
+
 # Set the environment variable for the model path on the host server
 ENV MODEL_PATH /app/data
 
